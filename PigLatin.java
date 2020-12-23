@@ -35,33 +35,30 @@ public class PigLatin {
 
   public static String pigLatinBest(String s) {
     if (s.length() < 1) return s;
-    return s + "hay";
+    String start = s.charAt(0) + "";
+    String regchars = "abcdefghijklmnopqrstuvwxyz1234567890";
+    if (!(  regchars.substring(0, 26).contains( s.charAt(0)+"" )  )) return s;
+    if (! (regchars.contains( s.charAt(s.length()-1)+"" )) ) {
+      return ( pigLatin( s.substring(0, s.length()-1) ) + s.charAt(s.length()-1) );
+    } else {
+      return pigLatin(s);
+    }
   }
 
   public static void main( String[]args ) throws FileNotFoundException {
 
-      // Scanner n = new Scanner( System.in );
-      // String lines = "";
-      // while (n.hasNextLine()) {
-      //   String pigLatinLine = "";
-      //   Scanner m = new Scanner( n.nextLine() );
-      //   while (m.hasNext()) {
-      //     String word = pigLatinSimple(m.next());
-      //     pigLatinLine += word + " ";
-      //   }
-      //   lines += pigLatinLine.substring(0, pigLatinLine.length() - 1) + "\n";
-      // }
-      // System.out.println(lines);
-      System.out.println("mock  --> " + pigLatinSimple("mock"));
-      System.out.println("pie   --> " + pigLatinSimple("pie"));
-      System.out.println("david --> " + pigLatinSimple("david"));
-      System.out.println("aaron --> " + pigLatinSimple("aaron"));
-      System.out.println();
-      System.out.println("the   --> " + pigLatin("the"));
-      System.out.println("check --> " + pigLatin("check"));
-      System.out.println("skee  --> " + pigLatin("skee"));
-      System.out.println("emu   --> " + pigLatin("emu"));
-      System.out.println("grade --> " + pigLatin("grade"));
+      Scanner n = new Scanner( System.in );
+      String lines = "";
+      while (n.hasNextLine()) {
+        String pigLatinLine = "";
+        Scanner m = new Scanner( n.nextLine() );
+        while (m.hasNext()) {
+          String word = pigLatinBest(m.next());
+          pigLatinLine += word + " ";
+        }
+        lines += pigLatinLine.substring(0, pigLatinLine.length() - 1) + "\n";
+      }
+      System.out.println(lines);
 
 
 
