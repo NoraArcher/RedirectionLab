@@ -4,6 +4,7 @@ public class PigLatin {
 
   public static String pigLatinSimple(String s) {
     if (s.length() < 1) return s;
+    s = s.toLowerCase();
     char start = s.charAt(0);
     String vowels = "aeiou";
     String finale;
@@ -12,11 +13,12 @@ public class PigLatin {
     } else {
       finale = (s.substring(1, s.length()) + s.charAt(0) + "ay");
     }
-    return finale.toLowerCase();
+    return finale;
   }
 
   public static String pigLatin(String s) {
     if (s.length() < 1) return s;
+    s = s.toLowerCase();
     char start = s.charAt(0);
     String vowels = "aeiou";
     String[] dig = {"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"};
@@ -30,11 +32,12 @@ public class PigLatin {
     } else {
       finale = (s.substring(1, s.length()) + s.charAt(0) + "ay");
     }
-    return finale.toLowerCase();
+    return finale;
   }
 
   public static String pigLatinBest(String s) {
     if (s.length() < 1) return s;
+    s = s.toLowerCase();
     String start = s.charAt(0) + "";
     String regchars = "abcdefghijklmnopqrstuvwxyz1234567890";
     if (!(  regchars.substring(0, 26).contains( s.charAt(0)+"" )  )) return s;
