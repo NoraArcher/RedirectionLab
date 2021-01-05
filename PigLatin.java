@@ -60,6 +60,7 @@ public class PigLatin {
           pigLatinLine += word + " ";
         }
         lines += pigLatinLine.substring(0, pigLatinLine.length() - 1) + "\n";
+        if (n.hasNextLine() == false) lines = lines.substring(0, lines.length()-1);
       }
       System.out.println(lines);
 
