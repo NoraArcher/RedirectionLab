@@ -59,9 +59,6 @@ public class PigLatin {
           String word = pigLatinBest(m.next());
           pigLatinLine += word + " ";
         }
-        if (pigLatinLine.substring(0, pigLatinLine.length() - 1).charAt(pigLatinLine.length()-2) < 33) {
-          System.out.println("space alert!");
-        }
         lines.add( pigLatinLine.substring(0, pigLatinLine.length() - 1) );
       }
       for (int i = 0; i < lines.size(); i++) {
