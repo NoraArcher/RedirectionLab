@@ -51,7 +51,7 @@ public class PigLatin {
   public static void main( String[]args ) throws FileNotFoundException {
 
       Scanner n = new Scanner( System.in );
-      String lines = "";
+      ArrayList<String> lines = new ArrayList<String>();
       while (n.hasNextLine()) {
         String pigLatinLine = "";
         Scanner m = new Scanner( n.nextLine() );
@@ -59,10 +59,14 @@ public class PigLatin {
           String word = pigLatinBest(m.next());
           pigLatinLine += word + " ";
         }
-        lines += pigLatinLine.substring(0, pigLatinLine.length() - 1) + "\n";
-        if (n.hasNextLine() == false) lines = lines.substring(0, lines.length()-1);
+        if (pigLatinLine.substring(0, pigLatinLine.length() - 1).charAt(pigLatinLine.length()-2) < 33) {
+          System.out.println("space alert!");
+        }
+        lines.add( pigLatinLine.substring(0, pigLatinLine.length() - 1) );
       }
-      System.out.println(lines);
+      for (int i = 0; i < lines.size(); i++) {
+        System.out.println(lines.get(i));
+      }
 
 
 
